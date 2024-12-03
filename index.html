@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Weekly Chronicle</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>The Weekly Chronicle</h1>
+            <div class="date-line">
+                <span id="current-date">Volume 1 - Week 1</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" id="week-selector">Select Edition</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main id="weekly-content">
+            <!-- Dynamic content will be loaded here -->
+        </main>
+
+        <footer>
+            <p>Published by The Weekly Chronicle &copy; 2024. All rights reserved.</p>
+            <p>Editor-in-Chief: Your Name Here</p>
+        </footer>
+    </div>
+
+    <div id="week-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Select Edition</h2>
+            <div id="week-links">
+                <!-- Dynamically generated week links -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
