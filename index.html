@@ -2,20 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Weekly Chronicle</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SAY SAI</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>The Weekly Chronicle</h1>
-            <div class="date-line">
-                <span id="current-date">Volume 1 - Week 1</span>
+            <div class="header-content">
+                <div class="header-image left">
+                    <img src="images/left-logo.png" alt="Left Logo">
+                </div>
+                <div class="title-section">
+                    <h1>Sai Antar Yatra</h1>
+                    <h2 class="subtitle">A unified journey of service, adoration and illumination</h2>
+                    <div class="date-line">
+                        <span id="current-date">Sai Centennial Satsang - Week 1</span>
+                    </div>
+                </div>
+                <div class="header-image right">
+                    <img src="images/right-logo.png" alt="Right Logo">
+                </div>
             </div>
             <nav>
                 <ul>
                     <li><a href="#" id="week-selector">Select Edition</a></li>
+                    <li><a href="#" id="photo-gallery">Photo Gallery</a></li>
                 </ul>
             </nav>
         </header>
@@ -25,9 +37,7 @@
         </main>
 
         <footer>
-            <p>Published by The Weekly Chronicle &copy; 2024. All rights reserved.</p>
-            <p>Editor-in-Chief: Your Name Here</p>
-        </footer>
+            <p>Published by Sathya Sai Baba Center of Tri Valley &copy; 2024. All rights reserved.</p>
     </div>
 
     <div id="week-modal" class="modal">
@@ -36,6 +46,16 @@
             <h2>Select Edition</h2>
             <div id="week-links">
                 <!-- Dynamically generated week links -->
+            </div>
+        </div>
+    </div>
+
+    <div id="gallery-modal" class="gallery-modal">
+        <div class="gallery-content">
+            <span class="close">&times;</span>
+            <h2>Photo Gallery</h2>
+            <div id="gallery-container">
+                <!-- Week galleries will be dynamically added here -->
             </div>
         </div>
     </div>

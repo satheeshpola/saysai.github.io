@@ -1,35 +1,44 @@
 {
     "weekNumber": 1,
-    "date": "January 1, 2024",
+    "date": "November 29, 2024",
     "articles": [
         {
-            "headline": "City Council Approves New Park Development",
-            "content": "In a landmark decision that promises to reshape our community's recreational landscape, the City Council has unanimously approved the development of Central Gardens Park. The ambitious project, estimated at $2.5 million, will transform the vacant lot on Maple Street into a state-of-the-art recreational facility.\n\nMayor Sarah Johnson emphasized the project's significance: 'This park will be more than just a green space; it's an investment in our community's future.' The development will include walking trails, a children's playground, and an amphitheater for community events.",
-            "author": "Michael Chen",
-            "imageCaption": "Artist's rendering of the proposed Central Gardens Park"
+            "headline": "Launch of Satya Sai Centennial Sadhana",
+            "content": "This week marks the auspicious beginning of our 52-week Sadhana journey leading up to the Satya Sai Centennial celebration. The inaugural session commenced with three soul-stirring bhajans:<ul><li><a href='https://sairhythms.sathyasai.org/bhajan/jai-jai-jai-gananayaka-jai-jai-vighna-vinashaka' target='_blank'>Jai Jai Jai Gananayaka Jai Jai Vighna Vinashaka</a></li><li><a href='https://sairhythms.sathyasai.org/bhajan/aruna-ramana-sri-guru-deva' target='_blank'>Aruna Ramana Sri Guru Deva</a></li><li><a href='https://sairhythms.sathyasai.org/bhajan/hare-rama-hare-rama-rama-rama-hare-hare' target='_blank'>Harey Rama Harey Rama Rama Rama Harey Harey</a></li></ul>This divine selection set the perfect atmosphere for our spiritual practice.",
+            "author": "Editorial Team",
+            "imageCaption": "Beginning of Centennial Sadhana"
         },
         {
-            "headline": "Local High School Wins State Championship",
-            "content": "The Jefferson High School Tigers made history last night, clinching their first state basketball championship in 25 years. The nail-biting final game against rival Riverside Academy ended with a score of 78-76, thanks to a last-second three-pointer by senior captain James Martinez.\n\n'This victory belongs to the entire community,' said Coach Robert Wilson, fighting back tears of joy. 'These kids have shown incredible dedication and spirit throughout the season.'",
-            "author": "Lisa Thompson",
-            "imageCaption": "The Tigers celebrating their historic victory"
+            "headline": "108 Names of Bhagawan: Week 1 Reflection",
+            "content": "As part of our weekly practice, we contemplated on the first two names of Bhagawan:<ul><li>OM Sri Sai Nathaaya Namaha</li><li>OM Sri Sai Lakshmi Naarayanaya Namaha</li></ul>The congregation participated in a focused 5-minute Likhitha Nama Japam, deepening their connection with divine names.",
+            "author": "Spiritual Team",
+            "imageCaption": "Divine Names Contemplation"
         },
         {
-            "headline": "New Restaurant Brings International Flavors",
-            "content": "Downtown's culinary scene is about to get more exciting with the opening of 'Fusion Kitchen' on Oak Street. Chef Maria Rodriguez, previously of the acclaimed 'Le Petit Paris' in New York, brings her unique blend of French and Latin American cuisines to our community.\n\n'I want to create more than just a restaurant,' says Rodriguez. 'This will be a place where people can experience different cultures through food.'",
-            "author": "David Park",
-            "imageCaption": "Chef Rodriguez preparing her signature dish"
+            "headline": "Young Adults Share Their Sai Journey",
+            "content": "During the Thanksgiving holiday gathering, Young Adults (YAs) engaged in an enriching open discussion. They shared personal experiences about connecting with Swami in their daily lives, reflected on impactful moments from their SSE classes, and offered valuable insights for current SSE students. The session concluded with the traditional aarti followed by dinner prasadam.",
+            "author": "YA Team",
+            "imageCaption": "YA Thanksgiving Gathering"
+        },
+        {
+            "headline": "Service to Veterans: Winter Essentials Drive",
+            "content": "Exemplifying Swami's message of selfless service, our Young Adults concluded the evening with a special service project, preparing winter essential packages for homeless veterans in our locality. This initiative demonstrates the practical application of Swami's teachings of love in action.",
+            "author": "Service Team",
+            "imageCaption": "Seva in Action"
         }
     ],
     "agenda": [
-        "Town Hall Meeting - Tuesday, 7 PM at City Hall",
-        "Farmer's Market Opening - Saturday, 9 AM to 2 PM",
-        "Library Book Sale - Sunday, 10 AM to 4 PM",
-        "Youth Basketball Registration Deadline - Friday"
+        "Bhajans - Three Selected Divine Songs",
+        "108 Names Study - First Two Names",
+        "Likhitha Nama Japam - 5 Minutes",
+        "Young Adults Discussion Session",
+        "Evening Aarti",
+        "Dinner Prasadam",
+        "Veterans Service Project"
     ],
-    "weatherReport": {
-        "forecast": "Sunny with occasional clouds",
-        "temperature": "High 72°F, Low 55°F",
-        "weekOutlook": "Mild temperatures continue through the week"
+    "spiritualHighlight": {
+        "practice": "Likhitha Nama Japam",
+        "duration": "5 minutes",
+        "focus": "First two names of the 108 Names of Bhagawan"
     }
 }

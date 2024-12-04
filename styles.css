@@ -1,3 +1,9 @@
+/* Add viewport meta tag to ensure proper scaling */
+@viewport {
+    width: device-width;
+    initial-scale: 1;
+}
+
 body {
     font-family: 'Times New Roman', Times, serif;
     line-height: 1.6;
@@ -15,6 +21,46 @@ body {
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     padding: 20px;
     border: 1px solid #ddd;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 0 20px;
+}
+
+.header-image {
+    width: 150px;
+    height: 150px;
+    flex-shrink: 0;
+}
+
+.header-image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #222;
+}
+
+.title-section {
+    text-align: center;
+    flex-grow: 1;
+    margin: 0 20px;
+}
+
+.title-section h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.2em;
+    font-style: italic;
+    margin-bottom: 15px;
+    color: #444;
 }
 
 header {
@@ -45,8 +91,9 @@ header h1 {
 .newspaper-layout {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 25px;
-    padding: 20px;
+    gap: 20px;
+    padding: 15px;
+    margin-top: 10px;
 }
 
 .article-block {
@@ -55,30 +102,76 @@ header h1 {
     padding: 15px;
     position: relative;
     break-inside: avoid;
+    margin-bottom: 15px;
 }
 
 .article-block h2 {
-    font-size: 1.5em;
-    margin-bottom: 15px;
+    font-size: 1.4em;
+    margin-bottom: 8px;
     font-weight: bold;
     border-bottom: 2px solid #222;
-    padding-bottom: 5px;
+    padding-bottom: 3px;
+    color: #222;
 }
 
 .article-block p {
-    text-align: justify;
-    font-size: 0.95em;
-    margin-bottom: 15px;
-    column-gap: 40px;
-    hyphens: auto;
+    font-size: 1em;
+    line-height: 1.6;
+    margin-top: 8px;
+    margin-bottom: 1em;
+    -webkit-font-feature-settings: normal;
+    font-feature-settings: normal;
 }
 
-.article-block:first-letter {
-    float: left;
-    font-size: 3.5em;
-    padding: 0 5px 0 0;
-    line-height: 0.8;
-    font-family: "Times New Roman", serif;
+.article-block p::first-letter {
+    font-size: inherit;
+    float: none;
+    margin: 0;
+    padding: 0;
+    line-height: inherit;
+}
+
+.article-block ul {
+    list-style: none;
+    padding-left: 20px;
+    margin: 15px 0;
+}
+
+.article-block ul li {
+    position: relative;
+    padding: 8px 0 8px 25px;
+    margin: 5px 0;
+    font-style: italic;
+    color: #333;
+}
+
+.article-block ul li a {
+    color: #FF9933;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid transparent;
+}
+
+.article-block ul li a:hover {
+    color: #e67300;
+    border-bottom: 1px solid #e67300;
+}
+
+.article-block ul li a:visited {
+    color: #cc6600;
+}
+
+.article-block ul li:before {
+    content: "🕉️";  /* Using Om symbol as bullet */
+    position: absolute;
+    left: 0;
+    color: #FF9933; /* Swami's robe color */
+}
+
+/* Alternative bullet style if you prefer */
+.article-block ul li.alt:before {
+    content: "•";
+    font-size: 1.5em;
 }
 
 .article-image {
@@ -86,7 +179,7 @@ header h1 {
 }
 
 .article-image img {
-    width: 100%;
+    max-width: 100%;
     height: auto;
     object-fit: cover;
     border: 1px solid #222;
@@ -141,6 +234,38 @@ header h1 {
     padding: 5px 0;
 }
 
+nav {
+    text-align: center;
+    margin: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #222;
+    padding: 8px 16px;
+    border: 1px solid #222;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #FF9933;
+    color: white;
+}
+
 .modal {
     display: none;
     position: fixed;
@@ -191,8 +316,99 @@ header h1 {
 }
 
 #week-links a:hover {
-    background-color: #222;
+    background-color: #FF9933;
     color: #fff;
+}
+
+.week-link {
+    display: block;
+    padding: 10px;
+    margin: 5px 0;
+    text-decoration: none;
+    color: #000;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.week-link:hover {
+    background-color: #FF9933;
+    color: white;
+}
+
+.week-link.future {
+    color: #999;
+    cursor: not-allowed;
+    background-color: #f5f5f5;
+    pointer-events: none;
+}
+
+.week-link.future::after {
+    content: " (Coming Soon)";
+    font-style: italic;
+    font-size: 0.9em;
+}
+
+.gallery-modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9);
+}
+
+.gallery-content {
+    background-color: #f4f1e9;
+    margin: 5% auto;
+    padding: 20px;
+    border: 2px solid #222;
+    width: 90%;
+    max-width: 1200px;
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.week-gallery {
+    margin: 20px 0;
+}
+
+.week-gallery h3 {
+    color: #222;
+    border-bottom: 2px solid #FF9933;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    padding: 15px;
+}
+
+.photo-item {
+    position: relative;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    background-color: #f5f5f5;
+}
+
+.photo-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 footer {
@@ -201,4 +417,71 @@ footer {
     margin-top: 30px;
     border-top: 3px double #222;
     font-style: italic;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+    .newspaper-layout {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        padding: 10px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .header h1 {
+        font-size: 1.8em;
+    }
+    
+    .header h2 {
+        font-size: 1.2em;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav ul li {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    nav ul li a {
+        display: block;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .newspaper-layout {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 8px;
+    }
+
+    .article-block {
+        padding: 10px;
+    }
+
+    .article-block h2 {
+        font-size: 1.3em;
+    }
+
+    .article-image {
+        float: none !important;
+        width: 100% !important;
+        margin: 0 0 10px 0 !important;
+    }
+
+    .modal-content {
+        width: 95%;
+        margin: 20px auto;
+    }
+
+    .close-button {
+        font-size: 24px;
+        padding: 8px;
+    }
 }
