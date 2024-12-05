@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SAY SAI - Week 2 Preview</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Week 2 specific styles */
+        .week2-layout {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            padding: 20px;
+        }
+
+        .week2-main-article {
+            grid-column: 1 / -1;
+            background: linear-gradient(to right, rgba(255, 153, 51, 0.1), transparent);
+            padding: 2rem;
+            border-radius: 8px;
+        }
+
+        .week2-names-section {
+            grid-column: 1 / span 2;
+            background-color: #fff;
+            padding: 1.5rem;
+            border: 1px solid #eee;
+            border-radius: 8px;
+        }
+
+        .week2-highlight {
+            grid-column: 3;
+            background-color: rgba(255, 153, 51, 0.05);
+            padding: 1.5rem;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .week2-activity {
+            grid-column: 1 / -1;
+            background: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .week2-footer {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        @media screen and (max-width: 768px) {
+            .week2-layout {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                padding: 10px;
+            }
+
+            .week2-names-section,
+            .week2-highlight {
+                grid-column: 1;
+            }
+
+            .week2-footer {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="mobile-notice">For best experience, please view on desktop</div>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <div class="header-image left">
+                    <img src="images/left-logo.png" alt="Left Logo">
+                </div>
+                <div class="title-section">
+                    <h1>Sai Antar Yatra</h1>
+                    <h2 class="subtitle">A unified journey of service, adoration and illumination</h2>
+                    <div class="date-line">
+                        <span id="current-date">Sai Centennial Satsang - Week 2</span>
+                    </div>
+                </div>
+                <div class="header-image right">
+                    <img src="images/right-logo.png" alt="Right Logo">
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Back to Week 1</a></li>
+                    <li><a href="#" id="photo-gallery">Photo Gallery</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main id="weekly-content" class="week2-layout">
+            <!-- Content will be loaded here with Week 2 specific layout -->
+        </main>
+
+        <footer>
+            <p>Published by Sathya Sai Baba Center of Tri Valley &copy; 2024. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async function() {
+            try {
+                const response = await fetch('content/week2.json');
+                const weekData = await response.json();
+                
+                const content = document.getElementById('weekly-content');
+                
+                // Week 2 specific layout
+                const html = `
+                    <article class="week2-main-article">
+                        <h2>${weekData.articles[0].headline}</h2>
+                        <div class="article-content">${weekData.articles[0].content}</div>
+                        ${weekData.articles[0].imageCaption ? `<div class="image-caption">${weekData.articles[0].imageCaption}</div>` : ''}
+                    </article>
+
+                    <section class="week2-names-section">
+                        <h2>${weekData.articles[1].headline}</h2>
+                        <div class="article-content">${weekData.articles[1].content}</div>
+                    </section>
+
+                    <aside class="week2-highlight">
+                        <div>
+                            <h3>Spiritual Focus</h3>
+                            <p><strong>Practice:</strong> ${weekData.spiritualHighlight.practice}</p>
+                            <p><strong>Duration:</strong> ${weekData.spiritualHighlight.duration}</p>
+                            <p><strong>Focus:</strong> ${weekData.spiritualHighlight.focus}</p>
+                        </div>
+                        <div>
+                            <h3>Week ${weekData.weekNumber} Agenda</h3>
+                            <ul>
+                                ${weekData.agenda.map(item => `<li>${item}</li>`).join('')}
+                            </ul>
+                        </div>
+                    </aside>
+
+                    <article class="week2-activity">
+                        <h2>${weekData.articles[2].headline}</h2>
+                        <div class="article-content">${weekData.articles[2].content}</div>
+                        ${weekData.articles[2].imageCaption ? `<div class="image-caption">${weekData.articles[2].imageCaption}</div>` : ''}
+                    </article>
+
+                    <div class="week2-footer">
+                        <div class="article-block">
+                            <h2>${weekData.articles[3].headline}</h2>
+                            <div class="article-content">${weekData.articles[3].content}</div>
+                            ${weekData.articles[3].imageCaption ? `<div class="image-caption">${weekData.articles[3].imageCaption}</div>` : ''}
+                        </div>
+                    </div>
+                `;
+
+                content.innerHTML = html;
+
+                // Add click handlers for divine names
+                document.querySelectorAll('.divine-name').forEach(button => {
+                    button.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const meaning = this.getAttribute('data-meaning');
+                        if (meaning) {
+                            if (window.innerWidth <= 768) {
+                                this.classList.toggle('active');
+                            }
+                        }
+                    });
+                });
+            } catch (error) {
+                console.error('Error loading content:', error);
+            }
+        });
+    </script>
+</body>
+</html>

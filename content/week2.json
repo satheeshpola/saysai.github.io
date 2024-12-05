@@ -1,0 +1,43 @@
+{
+    "weekNumber": 2,
+    "date": "December 6, 2024",
+    "articles": [
+        {
+            "headline": "Week 2 of Satya Sai Centennial Sadhana",
+            "content": "This week's spiritual journey continued with three soul-stirring bhajans:<ul><li><a href='https://sairhythms.sathyasai.org/song/aao-aao-ganapathi-deva' target='_blank'>Aao Aao Ganapathi Deva</a></li><li><a href='https://sairhythms.sathyasai.org/song/mana-bangaru-parthi-baba' target='_blank'>Mana Bangaru Parthi Baba</a></li><li><a href='https://sairhythms.sathyasai.org/song/bhaja-mana-sita-ram' target='_blank'>Bhaja Mana Sita Ram</a></li></ul>The divine vibrations set a perfect atmosphere for our spiritual practice.",
+            "author": "Editorial Team",
+            "imageCaption": "Week 2 Bhajan Session"
+        },
+        {
+            "headline": "108 Names of Bhagawan: Week 2 Reflection",
+            "content": "This week, we delved into the third and fourth names of Bhagawan:<ul><li><button class='divine-name' data-meaning='We surrender to Sai Who is the Embodiment of Dharma (Righteousness).'>Om Sri Sai Dharma Swarupaya Namaha</button></li><li><button class='divine-name' data-meaning='We surrender to Sai Who is the Embodiment of Peace.'>Om Sri Sai Shanti Swarupaya Namaha</button></li></ul>The congregation participated in a focused 5-minute Likhitha Nama Japam, deepening their connection with these divine names.",
+            "author": "Spiritual Team",
+            "imageCaption": ""
+        },
+        {
+            "headline": "Bhajan Antakshari: A Joyful Musical Evening",
+            "content": "The evening took a delightful turn with an engaging bhajan antakshari session. Devotees, both young and old, participated enthusiastically in this musical game where they had to identify bhajans based on harmonium tunes or mobile recordings. The activity brought together adults and children in a spirit of joy and devotion, creating a beautiful blend of fun and spiritual learning.",
+            "author": "Youth Team",
+            "imageCaption": "Musical Fun with Bhajan Antakshari"
+        },
+        {
+            "headline": "Evening Conclusion",
+            "content": "The spiritually enriching evening concluded with the traditional mangala aarti, followed by dinner prasadam. The combination of structured sadhana and joyful activities made this week's session particularly memorable for all participants.",
+            "author": "Service Team",
+            "imageCaption": "Aarti and Prasadam"
+        }
+    ],
+    "agenda": [
+        "Opening Bhajans - Three Selected Divine Songs",
+        "108 Names Study - Third and Fourth Names",
+        "Likhitha Nama Japam - 5 Minutes",
+        "Bhajan Antakshari Session",
+        "Evening Aarti",
+        "Dinner Prasadam"
+    ],
+    "spiritualHighlight": {
+        "practice": "Likhitha Nama Japam & Bhajan Antakshari",
+        "duration": "5 minutes + Interactive Session",
+        "focus": "Third and fourth names of the 108 Names of Bhagawan"
+    }
+}

@@ -355,7 +355,7 @@ nav ul li a:hover {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     gap: 10px;
-    padding: 20px;
+    padding: 15px;
 }
 
 #week-links a {
@@ -391,14 +391,57 @@ nav ul li a:hover {
 .week-link.future {
     color: #999;
     cursor: not-allowed;
-    background-color: #f5f5f5;
+    background-color: #e1dddd ;
     pointer-events: none;
+    border: 1px dashed #ccc !important;
 }
 
 .week-link.future::after {
     content: " (Coming Soon)";
     font-style: italic;
     font-size: 0.9em;
+}
+
+.special-edition {
+    background: #FF9933 !important;
+    color: white !important;
+    padding: 15px !important;
+    text-align: center;
+    border: none !important;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto 0;
+    display: block;
+    grid-column: 1 / -1;
+}
+
+.special-edition .special-title {
+    display: block;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.special-edition .special-date {
+    display: block;
+    font-size: 0.9em;
+    opacity: 0.9;
+}
+
+.special-edition:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.special-edition.future {
+    opacity: 0.85;
+}
+
+.weeks-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
 }
 
 .gallery-modal {

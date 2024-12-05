@@ -118,6 +118,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Generate week links with dates
     function generateWeekLinks() {
         weekLinks.innerHTML = ''; // Clear existing links
+        
+        // Generate regular week links
         for (let week = 1; week <= 52; week++) {
             const weekDate = getWeekDate(week);
             const weekLink = document.createElement('a');
@@ -138,6 +140,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
             weekLinks.appendChild(weekLink);
         }
+
+        // Add special box for Swami's 100th Birthday
+        const specialLink = document.createElement('a');
+        specialLink.href = '#centennial';
+        specialLink.className = 'week-link special-edition';
+        specialLink.innerHTML = `
+            <span class="special-title">Swami's 100th Birthday Special Edition</span>
+            <span class="special-date">November 23rd, 2025</span>
+        `;
+        specialLink.classList.add('future');
+        weekLinks.appendChild(specialLink);
     }
 
     // Load week content from JSON file
