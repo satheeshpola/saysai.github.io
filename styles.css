@@ -64,11 +64,13 @@ body {
     width: 100%;  
 }
 
-.title-section h2 {
-    font-size: 1.2em;
-    margin: 10px 0;
-    font-weight: normal;
-    width: 100%;  
+.title-section h2.subtitle {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    margin-top: 5px;
+    color: #000000 !important;
+    opacity: 0.9;
 }
 
 .date-line {
@@ -85,6 +87,15 @@ body {
     padding: 20px;
     border-bottom: 3px double #222;
     margin-bottom: 20px;
+}
+
+.header > h2 {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    margin-top: 5px;
+    color: #000000;
+    opacity: 0.9;
 }
 
 /* Mobile-specific header styles */
@@ -681,5 +692,166 @@ footer {
     .close-button {
         font-size: 24px;
         padding: 8px;
+    }
+}
+
+/* Teaching styles */
+#container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+    max-width: 100%;
+    padding: 15px 20px;
+    width: 800px;
+    position: relative;
+    margin: 10px auto;
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+#date-info {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #7f8c8d;
+    text-align: center;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+    opacity: 0.9;
+}
+
+#weekly-content {
+    margin-top: 10px;
+}
+
+.sentence-row {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 2px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.letter-box {
+    width: 20px;
+    height: 32px;
+    border: 1px solid #e0e3e9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 1px;
+    cursor: pointer;
+    background: #ffffff;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+    touch-action: manipulation;
+}
+
+.space {
+    width: 10px;
+    display: inline-block;
+}
+
+.punctuation-box {
+    width: auto;
+    min-width: 8px;
+    padding: 0;
+    border: none;
+    background: none;
+}
+
+.letter {
+    opacity: 0;
+    font-size: 20px;
+    color: #2c3e50;
+    line-height: 1;
+    font-weight: 600;
+    transform: translateY(-1px) scale(0.8);
+}
+
+.letter.visible {
+    opacity: 1;
+    transform: translateY(-1px) scale(1);
+}
+
+.flower-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    opacity: 1;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.letter.visible + .flower-overlay {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.5);
+}
+
+.title {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    margin: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+    line-height: 1;
+}
+
+.subtitle {
+    text-align: center;
+    color: #7f8c8d;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.2px;
+    margin: 2px 0 15px;
+    opacity: 0.8;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    line-height: 1;
+}
+
+@media (max-width: 840px) {
+    #container {
+        width: 95%;
+        padding: 12px 15px;
+    }
+    
+    .letter-box {
+        width: 16px;
+        height: 28px;
+        font-size: 16px;
+    }
+
+    .letter-box.magnified {
+        transform: scale(3);
+        z-index: 10;
+        box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+        background: #fff;
+    }
+
+    .space {
+        width: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .letter-box {
+        width: 14px;
+        height: 24px;
+        font-size: 14px;
+    }
+
+    .space {
+        width: 6px;
     }
 }

@@ -306,6 +306,182 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Initialize teaching functionality
+    const text = "Be good, see good, do good always. This is the path to true bliss.";
+    const container = document.getElementById('container');
+    const dateInfo = document.getElementById('date-info');
+    const letterBoxes = [];
+    const START_DATE = '2024-11-29';
+
+    function getWeeksSinceStart() {
+        const start = new Date(START_DATE);
+        const today = new Date();
+        const diffTime = Math.abs(today - start);
+        const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+        // Add 1 to start with one letter on day 1, then increment weekly
+        return Math.floor(diffDays / 7) + 1;
+    }
+
+    function getLetterSequence() {
+        return [
+            64, 58, 15, 46, 57, 4, 63, 33, 21, 11, 
+            20, 13, 12, 44, 41, 3, 10, 66, 43, 16, 
+            56, 67, 61, 48, 59, 7, 50, 38, 19, 53, 
+            17, 24, 54, 28, 45, 55, 23, 30, 40, 22, 
+            34, 8, 37, 49, 32, 5, 14, 6, 39, 62, 
+            36, 47, 18, 52, 35, 51, 25, 1, 65, 9, 
+            27, 60, 2, 42, 29, 31, 26
+        ];
+    }
+
+    function initializeLetters() {
+        const weeksSinceStart = getWeeksSinceStart();
+        const sequence = getLetterSequence();
+        
+        // Count only alphabetic letters for progress
+        const alphaLettersTotal = letterBoxes
+            .filter(box => !box.isPunctuation)
+            .length;
+        
+        // Calculate how many alphabetic letters to reveal
+        const alphaLettersToReveal = Math.min(weeksSinceStart, alphaLettersTotal);
+        
+        // Track revealed alpha letters count
+        let revealedAlphaCount = 0;
+        
+        // Reveal letters in sequence
+        for (let i = 0; i < sequence.length && revealedAlphaCount < alphaLettersToReveal; i++) {
+            const indexToReveal = sequence[i];
+            if (indexToReveal !== undefined && letterBoxes[indexToReveal]) {
+                // Reveal the letter
+                letterBoxes[indexToReveal].letter.classList.add('visible');
+                
+                // Only increment count for non-punctuation
+                if (!letterBoxes[indexToReveal].isPunctuation) {
+                    revealedAlphaCount++;
+                }
+                
+                // Always reveal adjacent punctuation
+                if (indexToReveal + 1 < letterBoxes.length && 
+                    letterBoxes[indexToReveal + 1].isPunctuation) {
+                    letterBoxes[indexToReveal + 1].letter.classList.add('visible');
+                }
+            }
+        }
+    }
+
+    function addTouchHandlers() {
+        letterBoxes.forEach(({ box }) => {
+            box.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                box.classList.add('magnified');
+            });
+
+            box.addEventListener('touchend', (e) => {
+                e.preventDefault();
+                box.classList.remove('magnified');
+            });
+
+            box.addEventListener('touchcancel', (e) => {
+                e.preventDefault();
+                box.classList.remove('magnified');
+            });
+        });
+    }
+
+    // Split the text into sentences and create the layout
+    const sentences = text.split('.');
+    sentences[0] = sentences[0] + '.';
+    sentences[1] = sentences[1].trim() + '.';
+
+    // Create first sentence row
+    const firstRow = document.createElement('div');
+    firstRow.className = 'sentence-row';
+    container.appendChild(firstRow);
+
+    // Create second sentence row
+    const secondRow = document.createElement('div');
+    secondRow.className = 'sentence-row';
+    container.appendChild(secondRow);
+
+    // Process first sentence
+    const firstSentence = sentences[0].split('');
+    firstSentence.forEach((char, index) => {
+        if (char === ' ') {
+            const space = document.createElement('div');
+            space.className = 'space';
+            firstRow.appendChild(space);
+            return;
+        }
+
+        const box = document.createElement('div');
+        box.className = 'letter-box';
+        if (char.match(/[.,!?]/)) {
+            box.classList.add('punctuation-box');
+        }
+
+        const letter = document.createElement('div');
+        letter.className = 'letter';
+        letter.textContent = char;
+
+        const flower = document.createElement('div');
+        flower.className = 'flower-overlay';
+        flower.textContent = '🌸';
+
+        box.appendChild(letter);
+        box.appendChild(flower);
+        firstRow.appendChild(box);
+
+        letterBoxes.push({ 
+            box, 
+            letter, 
+            flower, 
+            index: index, 
+            isPunctuation: char.match(/[.,!?]/) 
+        });
+    });
+
+    // Process second sentence
+    const secondSentence = sentences[1].trim().split('');
+    secondSentence.forEach((char, index) => {
+        if (char === ' ') {
+            const space = document.createElement('div');
+            space.className = 'space';
+            secondRow.appendChild(space);
+            return;
+        }
+
+        const box = document.createElement('div');
+        box.className = 'letter-box';
+        if (char.match(/[.,!?]/)) {
+            box.classList.add('punctuation-box');
+        }
+
+        const letter = document.createElement('div');
+        letter.className = 'letter';
+        letter.textContent = char;
+
+        const flower = document.createElement('div');
+        flower.className = 'flower-overlay';
+        flower.textContent = '🌸';
+
+        box.appendChild(letter);
+        box.appendChild(flower);
+        secondRow.appendChild(box);
+
+        letterBoxes.push({ 
+            box, 
+            letter, 
+            flower, 
+            index: firstSentence.length + index, 
+            isPunctuation: char.match(/[.,!?]/) 
+        });
+    });
+
+    // Add touch handlers and initialize letters
+    addTouchHandlers();
+    initializeLetters();
+
     // Initialize week links
     generateWeekLinks();
 });
