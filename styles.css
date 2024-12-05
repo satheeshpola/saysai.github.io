@@ -419,6 +419,88 @@ footer {
     font-style: italic;
 }
 
+/* Divine Names Styling */
+.divine-name {
+    background: none;
+    border: none;
+    color: #FF9933;
+    font-size: 1em;
+    padding: 0.5em 1em;
+    margin: 0.5em 0;
+    cursor: pointer;
+    text-decoration: underline;
+    font-family: inherit;
+    text-align: left;
+    position: relative;
+    width: auto;
+    display: inline-block;
+}
+
+.divine-name:hover {
+    color: #e67300;
+}
+
+.divine-name::after {
+    content: attr(data-meaning);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    padding: 0.5em;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    white-space: nowrap;
+    font-size: 0.9em;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    z-index: 1000;
+    max-width: 90vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.divine-name:hover::after,
+.divine-name:focus::after,
+.divine-name:active::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+    .divine-name {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 1em;
+        margin: 0.5em 0;
+        background: rgba(255, 153, 51, 0.1);
+        border-radius: 4px;
+    }
+
+    .divine-name::after {
+        position: static;
+        transform: none;
+        display: block;
+        margin-top: 0.5em;
+        white-space: normal;
+        opacity: 0;
+        max-width: 100%;
+        text-align: center;
+        background: none;
+        box-shadow: none;
+        color: #666;
+        font-style: italic;
+    }
+
+    .divine-name:active::after {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
 /* Responsive Design */
 @media screen and (max-width: 1024px) {
     .newspaper-layout {

@@ -4,15 +4,15 @@
     "articles": [
         {
             "headline": "Launch of Satya Sai Centennial Sadhana",
-            "content": "This week marks the auspicious beginning of our 52-week Sadhana journey leading up to the Satya Sai Centennial celebration. The inaugural session commenced with three soul-stirring bhajans:<ul><li><a href='https://sairhythms.sathyasai.org/bhajan/jai-jai-jai-gananayaka-jai-jai-vighna-vinashaka' target='_blank'>Jai Jai Jai Gananayaka Jai Jai Vighna Vinashaka</a></li><li><a href='https://sairhythms.sathyasai.org/bhajan/aruna-ramana-sri-guru-deva' target='_blank'>Aruna Ramana Sri Guru Deva</a></li><li><a href='https://sairhythms.sathyasai.org/bhajan/hare-rama-hare-rama-rama-rama-hare-hare' target='_blank'>Harey Rama Harey Rama Rama Rama Harey Harey</a></li></ul>This divine selection set the perfect atmosphere for our spiritual practice.",
+            "content": "This week marks the auspicious beginning of our 52-week Sadhana journey leading up to the Satya Sai Centennial celebration. The inaugural session commenced with three soul-stirring bhajans:<ul><li><a href='https://sairhythms.sathyasai.org/song/jai-jai-jai-gananayaka-jai' target='_blank'>Jai Jai Jai Gananayaka Jai Jai Vighna Vinashaka</a></li><li><a href='https://sairhythms.sathyasai.org/song/aruna-ramana-sri-guru-deva' target='_blank'>Aruna Ramana Sri Guru Deva</a></li><li><a href='https://sairhythms.sathyasai.org/song/harey-rama-harey-rama-rama-0' target='_blank'>Harey Rama Harey Rama Rama Rama Harey Harey</a></li></ul>This divine selection set the perfect atmosphere for our spiritual practice.",
             "author": "Editorial Team",
             "imageCaption": "Beginning of Centennial Sadhana"
         },
         {
             "headline": "108 Names of Bhagawan: Week 1 Reflection",
-            "content": "As part of our weekly practice, we contemplated on the first two names of Bhagawan:<ul><li>Om Sri Bhagavan Sathya Sai Babaya Namaha</li><li>Om Sri Sai Sathya Swarupaya Namaha</li></ul>The congregation participated in a focused 5-minute Likhitha Nama Japam, deepening their connection with divine names.",
+            "content": "As part of our weekly practice, we contemplated on the first two names of Bhagawan:<ul><li><button class='divine-name' data-meaning='We surrender to Sai Who is the Divine Mother and Father of us all.'>Om Sri Bhagavan Sathya Sai Babaya Namaha</button></li><li><button class='divine-name' data-meaning=' We surrender to Sai Who is the Embodiment of Truth.'>Om Sri Sai Sathya Swarupaya Namaha.</button></li></ul>The congregation participated in a focused 5-minute Likhitha Nama Japam, deepening their connection with divine names.",
             "author": "Spiritual Team",
-            "imageCaption": "Divine Names Contemplation"
+            "imageCaption": ""
         },
         {
             "headline": "Young Adults Share Their Sai Journey",
