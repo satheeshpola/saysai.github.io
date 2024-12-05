@@ -472,6 +472,26 @@ footer {
     font-style: italic;
 }
 
+/* Mobile Notice */
+.mobile-notice {
+    display: none;
+    background-color: #FF9933;
+    color: white;
+    text-align: center;
+    padding: 8px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    font-size: 0.9em;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+@media screen and (max-width: 768px) {
+    .mobile-notice {
+        display: block;
+    }
+}
+
 /* Divine Names Styling */
 .divine-name {
     background: none;
