@@ -331,7 +331,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const diffTime = Math.abs(today - start);
         const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
         // Add 1 to start with one letter on day 1, then increment weekly
-        return Math.floor(diffDays / 7) ;
+        return Math.floor(diffDays / 7) + 1;
     }
 
     function initializeLetters() {
