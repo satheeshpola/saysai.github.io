@@ -702,14 +702,122 @@ footer {
     gap: 5px;
     align-items: center;
     max-width: 100%;
-    padding: 15px 20px;
     width: 800px;
     position: relative;
-    margin: 10px auto;
+    margin: 35px auto;
     background: #ffffff;
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    border-radius: 8px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    padding: 25px 35px;
+}
+
+#container::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    border: 2px solid #FF9933;
+    opacity: 0.25;
+    clip-path: polygon(
+        0% 18px,
+        18px 18px,
+        18px 0%,
+        calc(100% - 18px) 0%,
+        calc(100% - 18px) 18px,
+        100% 18px,
+        100% calc(100% - 18px),
+        calc(100% - 18px) calc(100% - 18px),
+        calc(100% - 18px) 100%,
+        18px 100%,
+        18px calc(100% - 18px),
+        0% calc(100% - 18px)
+    );
+}
+
+#container::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border: 1.5px solid #2c3e50;
+    opacity: 0.12;
+    clip-path: polygon(
+        0% 14px,
+        14px 14px,
+        14px 0%,
+        calc(100% - 14px) 0%,
+        calc(100% - 14px) 14px,
+        100% 14px,
+        100% calc(100% - 14px),
+        calc(100% - 14px) calc(100% - 14px),
+        calc(100% - 14px) 100%,
+        14px 100%,
+        14px calc(100% - 14px),
+        0% calc(100% - 14px)
+    );
+}
+
+/* Add subtle inner shadow */
+#container-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.02);
+    pointer-events: none;
+}
+
+@media (max-width: 840px) {
+    #container {
+        width: 95%;
+        padding: 20px 25px;
+        margin: 25px auto;
+    }
+    
+    #container::before {
+        top: -6px;
+        left: -6px;
+        right: -6px;
+        bottom: -6px;
+        clip-path: polygon(
+            0% 12px,
+            12px 12px,
+            12px 0%,
+            calc(100% - 12px) 0%,
+            calc(100% - 12px) 12px,
+            100% 12px,
+            100% calc(100% - 12px),
+            calc(100% - 12px) calc(100% - 12px),
+            calc(100% - 12px) 100%,
+            12px 100%,
+            12px calc(100% - 12px),
+            0% calc(100% - 12px)
+        );
+    }
+    
+    #container::after {
+        top: -3px;
+        left: -3px;
+        right: -3px;
+        bottom: -3px;
+        clip-path: polygon(
+            0% 10px,
+            10px 10px,
+            10px 0%,
+            calc(100% - 10px) 0%,
+            calc(100% - 10px) 10px,
+            100% 10px,
+            100% calc(100% - 10px),
+            calc(100% - 10px) calc(100% - 10px),
+            calc(100% - 10px) 100%,
+            10px 100%,
+            10px calc(100% - 10px),
+            0% calc(100% - 10px)
+        );
+    }
 }
 
 #date-info {

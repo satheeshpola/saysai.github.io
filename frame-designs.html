@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Frame Design Options</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .design-title {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        /* Design 1: Classic Double Frame */
+        .container-1 {
+            position: relative;
+            padding: 25px 35px;
+            background: linear-gradient(to bottom right, #fff, #fafafa);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            margin: 10px;
+        }
+
+        .container-1::before {
+            content: '';
+            position: absolute;
+            top: -8px; left: -8px; right: -8px; bottom: -8px;
+            border: 3px solid #E65C00;
+            opacity: 0.3;
+            clip-path: polygon(
+                0 15px, 15px 15px, 15px 0,
+                calc(100% - 15px) 0, calc(100% - 15px) 15px, 100% 15px,
+                100% calc(100% - 15px), calc(100% - 15px) calc(100% - 15px), calc(100% - 15px) 100%,
+                15px 100%, 15px calc(100% - 15px), 0 calc(100% - 15px)
+            );
+        }
+
+        /* Design 2: Ornate Corner */
+        .container-2 {
+            position: relative;
+            padding: 25px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            background: #fff;
+            margin: 10px;
+        }
+
+        .container-2::before {
+            content: '';
+            position: absolute;
+            top: -3px; left: -3px;
+            width: 25px; height: 25px;
+            border-top: 3px solid #E65C00;
+            border-left: 3px solid #E65C00;
+            opacity: 0.4;
+        }
+
+        .container-2::after {
+            content: '';
+            position: absolute;
+            bottom: -3px; right: -3px;
+            width: 25px; height: 25px;
+            border-bottom: 3px solid #E65C00;
+            border-right: 3px solid #E65C00;
+            opacity: 0.4;
+        }
+
+        /* Design 3: Subtle Shadow */
+        .container-3 {
+            position: relative;
+            padding: 25px 35px;
+            background: #fff;
+            box-shadow: 
+                0 0 0 1px rgba(0, 0, 0, 0.05),
+                0 2px 4px rgba(0, 0, 0, 0.02),
+                0 8px 16px rgba(0, 0, 0, 0.02);
+            margin: 10px;
+        }
+
+        .container-3::before {
+            content: '';
+            position: absolute;
+            inset: 8px;
+            border: 2px solid rgba(230, 92, 0, 0.25);
+            pointer-events: none;
+        }
+
+        /* Design 4: Minimalist Line */
+        .container-4 {
+            position: relative;
+            padding: 25px;
+            background: #fff;
+            margin: 10px;
+        }
+
+        .container-4::before {
+            content: '';
+            position: absolute;
+            top: 15px; left: 0;
+            width: 3px; height: calc(100% - 30px);
+            background: linear-gradient(to bottom, transparent, #E65C00, transparent);
+            opacity: 0.3;
+        }
+
+        .container-4::after {
+            content: '';
+            position: absolute;
+            top: 15px; right: 0;
+            width: 3px; height: calc(100% - 30px);
+            background: linear-gradient(to bottom, transparent, #E65C00, transparent);
+            opacity: 0.3;
+        }
+
+        /* Design 5: Elegant Double Border */
+        .container-5 {
+            position: relative;
+            padding: 25px 35px;
+            background: #fff;
+            border: 2px solid rgba(0, 0, 0, 0.1);
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+            margin: 10px;
+        }
+
+        .container-5::before {
+            content: '';
+            position: absolute;
+            top: -5px; left: -5px; right: -5px; bottom: -5px;
+            border: 2px solid rgba(230, 92, 0, 0.3);
+            clip-path: polygon(
+                0 12px, 12px 12px, 12px 0,
+                calc(100% - 12px) 0, calc(100% - 12px) 12px, 100% 12px,
+                100% calc(100% - 12px), calc(100% - 12px) calc(100% - 12px), calc(100% - 12px) 100%,
+                12px 100%, 12px calc(100% - 12px), 0 calc(100% - 12px)
+            );
+        }
+
+        /* Design 6: Modern Gradient */
+        .container-6 {
+            position: relative;
+            padding: 25px;
+            background: #fff;
+            border-radius: 2px;
+            margin: 10px;
+        }
+
+        .container-6::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            background: linear-gradient(45deg, transparent, rgba(230, 92, 0, 0.3));
+            z-index: -1;
+            clip-path: polygon(
+                0 10px, 10px 10px, 10px 0,
+                calc(100% - 10px) 0, calc(100% - 10px) 10px, 100% 10px,
+                100% calc(100% - 10px), calc(100% - 10px) calc(100% - 10px), calc(100% - 10px) 100%,
+                10px 100%, 10px calc(100% - 10px), 0 calc(100% - 10px)
+            );
+        }
+
+        .sample-content {
+            text-align: center;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid">
+        <div>
+            <div class="design-title">1. Classic Double Frame</div>
+            <div class="container-1">
+                <div class="sample-content">
+                    <h3>Be Good, See Good</h3>
+                    <p>Sample teaching content here</p>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="design-title">2. Ornate Corner</div>
+            <div class="container-2">
+                <div class="sample-content">
+                    <h3>Be Good, See Good</h3>
+                    <p>Sample teaching content here</p>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="design-title">3. Subtle Shadow</div>
+            <div class="container-3">
+                <div class="sample-content">
+                    <h3>Be Good, See Good</h3>
+                    <p>Sample teaching content here</p>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="design-title">4. Minimalist Line</div>
+            <div class="container-4">
+                <div class="sample-content">
+                    <h3>Be Good, See Good</h3>
+                    <p>Sample teaching content here</p>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="design-title">5. Elegant Double Border</div>
+            <div class="container-5">
+                <div class="sample-content">
+                    <h3>Be Good, See Good</h3>
+                    <p>Sample teaching content here</p>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="design-title">6. Modern Gradient</div>
+            <div class="container-6">
+                <div class="sample-content">
+                    <h3>Be Good, See Good</h3>
+                    <p>Sample teaching content here</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

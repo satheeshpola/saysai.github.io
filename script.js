@@ -313,15 +313,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const letterBoxes = [];
     const START_DATE = '2024-11-29';
 
-    function getWeeksSinceStart() {
-        const start = new Date(START_DATE);
-        const today = new Date();
-        const diffTime = Math.abs(today - start);
-        const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-        // Add 1 to start with one letter on day 1, then increment weekly
-        return Math.floor(diffDays / 7) + 1;
-    }
-
     function getLetterSequence() {
         return [
             64, 58, 15, 46, 57, 4, 63, 33, 21, 11, 
@@ -332,6 +323,15 @@ document.addEventListener('DOMContentLoaded', () => {
             36, 47, 18, 52, 35, 51, 25, 1, 65, 9, 
             27, 60, 2, 42, 29, 31, 26
         ];
+    }
+
+    function getWeeksSinceStart() {
+        const start = new Date(START_DATE);
+        const today = new Date();
+        const diffTime = Math.abs(today - start);
+        const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+        // Add 1 to start with one letter on day 1, then increment weekly
+        return Math.floor(diffDays / 7) ;
     }
 
     function initializeLetters() {
