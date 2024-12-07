@@ -963,3 +963,32 @@ footer {
         width: 6px;
     }
 }
+@media screen and (max-width: 768px) {
+    .article-block.main-story,
+    .article-block.secondary-story,
+    .article-block.tertiary-stories {
+        display: flex;
+        flex-direction: column;
+        grid-column: span 4 !important;
+    }
+
+    .article-block .story-content,
+    .article-block .story-block {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .article-image {
+        width: 100%;
+        max-height: 300px;
+    }
+
+    .tertiary-stories {
+        flex-direction: column;
+    }
+
+    .tertiary-stories .story-block {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}

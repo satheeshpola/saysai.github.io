@@ -7,13 +7,36 @@ document.addEventListener('DOMContentLoaded', () => {
     const currentDate = document.getElementById('current-date');
 
     // Initialize by loading week 1
-    loadWeekContent(1);
+	
+	const currentWeek = getCurrentWeek();
+	    loadWeekContent(currentWeek);
+   // loadWeekContent(1);
 
     // Function to check if a date is in the future
     function isFutureDate(date) {
         const today = new Date();
         return date > today;
     }
+
+
+	// Function to calculate weeks since project start
+	function getCurrentWeek() {
+	    // Set the project start date (November 29th, 2024)
+	    const projectStartDate = new Date(2024, 10, 29); // Month is 0-indexed
+	    const currentDate = new Date();
+    
+	    // Ensure we don't show weeks before the project start
+	    if (currentDate < projectStartDate) {
+	        return 1;
+	    }
+    
+	    // Calculate weeks difference
+	    const timeDiff = currentDate.getTime() - projectStartDate.getTime();
+	    const weeksDiff = Math.floor(timeDiff / (1000 * 3600 * 24 * 7)) + 1;
+    
+	    // Cap the week to the maximum available weeks (52 weeks in this case)
+	    return Math.min(weeksDiff, 52);
+	}
 
     // Function to generate date for a given week number
     function getWeekDate(weekNumber) {
@@ -62,28 +85,51 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
         },
         // Layout 2: Feature image layout
-        function(week, content) {
-            return `
-                <div class="article-block" style="grid-column: span 4;">
-                    <div class="article-image full-width">
-                        <img src="images/week-${week}-image-1.jpg" alt="Feature image">
-                        <div class="image-caption">${content.articles[0].imageCaption}</div>
-                    </div>
-                </div>
-                <div class="article-block" style="grid-column: span 2;">
-                    <h2>${content.articles[0].headline}</h2>
-                    <p>${content.articles[0].content}</p>
-                </div>
-                <div class="article-block" style="grid-column: span 2;">
-                    <h2>${content.articles[1].headline}</h2>
-                    <p>${content.articles[1].content}</p>
-                    <div class="article-image" style="margin-top: 10px;">
-                        <img src="images/week-${week}-image-2.jpg" alt="Secondary image">
-                        <div class="image-caption">${content.articles[1].imageCaption}</div>
-                    </div>
-                </div>
-            `;
-        },
+		// New Layout: Asymmetrical Spiritual Narrative
+		function(week, content) {
+		    // Helper function to check if image exists
+		    function renderImageIfExists(imagePath, imageCaption) {
+		        return `
+		            <div class="article-image responsive-image" style="width: 100%; overflow: hidden;">
+		                <img src="${imagePath}" alt="${imageCaption}" 
+		                     style="width: 100%; height: auto; object-fit: cover;"
+		                     onerror="this.closest('.article-image').style.display='none';">
+		                <div class="image-caption">${imageCaption}</div>
+		            </div>
+		        `;
+		    }
+
+		    return `
+		        <div class="article-block main-story responsive-grid">
+		            <div class="story-content">
+		                <h2>${content.articles[0].headline}</h2>
+		                <p>${content.articles[0].content}</p>
+		            </div>
+		            ${renderImageIfExists(`images/week-${week}-image-1.jpg`, content.articles[0].imageCaption)}
+		        </div>
+        
+		        <div class="article-block secondary-story responsive-grid">
+		            <h2>${content.articles[1].headline}</h2>
+		            <div class="story-content">
+		                <p>${content.articles[1].content}</p>
+		            </div>
+		            ${renderImageIfExists(`images/week-${week}-image-2.jpg`, content.articles[1].imageCaption)}
+		        </div>
+        
+		        <div class="article-block tertiary-stories responsive-grid">
+		            <div class="story-block">
+		                <h2>${content.articles[2].headline}</h2>
+		                ${renderImageIfExists(`images/week-${week}-image-3.jpg`, content.articles[2].imageCaption)}
+		                <p>${content.articles[2].content}</p>
+		            </div>
+		            <div class="story-block">
+		                <h2>${content.articles[3].headline}</h2>
+		                ${renderImageIfExists(`images/week-${week}-image-4.jpg`, content.articles[3].imageCaption)}
+		                <p>${content.articles[3].content}</p>
+		            </div>
+		        </div>
+		    `;
+		},
         // Layout 3: Magazine style
         function(week, content) {
             return `
